@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const stuffRoutes = require("./routes/stuff");
 const usersRoutes = require("./routes/user");
@@ -36,5 +37,5 @@ app.use((req, res, next) => {
 
 app.use("/api/stuff", stuffRoutes);
 app.use("/api/auth", usersRoutes);
-
+app.use("/images", express.static(path.join(__dirname, "images")));
 module.exports = app;
